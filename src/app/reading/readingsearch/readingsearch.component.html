@@ -1,0 +1,73 @@
+<form [formGroup]="readingSearchForm" id="readingSearchForm">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2">
+        <div class="form-group">
+          <label class="label-control">Building </label>
+          <select id="buildingId" formControlName="buildingId" class="form-control form-control-sm">
+            <option value="">--- Select One ---</option>
+            <option *ngFor="let name of BuildingList" ngValue={{name.id}}>{{name.name}}</option>
+
+          </select>
+        </div>
+
+      </div>
+      <div class="col-md-2">
+        <div class="form-group">
+          <label class="label-control">Object</label>
+          <select id="objectId" formControlName="objectId" class="form-control form-control-sm">
+            <option value="">--- Select One ---</option>
+            <option *ngFor="let name of ObjectList" ngValue={{name.id}}>{{name.name}}</option>
+          </select>
+
+        </div>
+
+      </div>
+      <div class="col-md-2">
+        <div class="form-group">
+          <label class="label-control">Data Field</label>
+          <select id="dataFieldId" formControlName="dataId" class="form-control form-control-sm">
+            <option value="">--- Select One ---</option>
+            <option *ngFor="let name of DataFieldList" ngValue={{name.id}}>{{name.name}}</option>
+          </select>
+
+        </div>
+
+      </div>
+
+      <div class="col-md-2">
+        <div class="form-group">
+          <label class="label-control"> From Date</label>
+          <input type="date" formControlName="fDate" placeholder="Datepicker" class="form-control">
+
+        </div>
+
+      </div>
+      <div class="col-md-2">
+        <div class="form-group">
+          <label class="label-control"> To Date</label>
+          <input type="date" formControlName="tDate" placeholder="Datepicker" class="form-control">
+
+        </div>
+
+      </div>
+      <div class="col-md-2">
+        <div class="form-group">
+          
+         <button class="btn btn-outline-success" (click)="Submit()" style="margin-top: 1.8rem;"><i class="fa fa-search"></i> Search</button>
+
+        </div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <h5>Time Series Chart</h5>
+          <p-chart type="line" [data]="data" [options]="basicOptions"></p-chart>
+      </div>
+      </div>
+      
+    </div>
+  </div>
+</form>
